@@ -9,7 +9,5 @@ urlpatterns = [
   path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh_api'),
   path('token/verify/', TokenVerifyView.as_view(), name='token_verify_api'),
   path('logout/', v.JWT.LogoutView.as_view(), name='logout_api'),
-  path("oauth/<str:oauth_provider>/", v.oauth.oauth_redirect, name="oauth_redirect"),
-  path("oauth/<str:oauth_provider>/callback/", v.oauth.oauth_callback, name="oauth_callback"),
   
 ]

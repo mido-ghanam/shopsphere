@@ -23,34 +23,6 @@ CREATE TABLE IF NOT EXISTS users (
 );
 """)
 
-#cur.execute("DROP TABLE GoogleAuth")
-cur.execute('''
-CREATE TABLE IF NOT EXISTS GoogleAuth (
-  id TEXT PRIMARY KEY,
-  user_id INTEGER NOT NULL,
-  access_token TEXT,
-  refresh_token TEXT,
-  sub TEXT DEFAULT '0',
-  expires_in BIGINT DEFAULT 3599,
-  created_at TEXT,
-  expires_at TEXT,
-  FOREIGN KEY(user_id) REFERENCES Users(id)
-)
-''')
-
-#cur.execute("DROP TABLE GitHubAuth")
-cur.execute("""
-CREATE TABLE IF NOT EXISTS GitHubAuth (
-  id TEXT PRIMARY KEY,
-  user_id INTEGER,
-  username TEXT,
-  access_token TEXT,
-  user_github_id INTEGER,
-  avatar_url TEXT NOT NULL
-);
-""")
-
-
 
 conn.commit()
 conn.close()

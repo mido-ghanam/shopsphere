@@ -87,7 +87,7 @@ TEMPLATES = [{'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIR
 
 WSGI_APPLICATION = 'shopsphere.wsgi.application'
 
-DATABASE_ROUTERS = ['MediaDrop.routers.DbRouter']
+DATABASE_ROUTERS = ['shopsphere.routers.DbRouter']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -121,20 +121,16 @@ USE_TZ = True
 
 LANGUAGES = [
   ('en', 'English'),
-  ('ar', 'Arabic'),
 ]
 LANGUAGE_CODE = 'en'
 USE_I18N = True
 
-LOCALE_PATHS = [
-  os.path.join(BASE_DIR, 'locale'),
-]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
 #STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'static'  # ده لو هتعمل collectstatic
+STATIC_ROOT = BASE_DIR / 'static'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
