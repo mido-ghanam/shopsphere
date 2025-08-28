@@ -1,7 +1,6 @@
 from os import system
 
 defaultPort = 8000
-
 try:
   port = input("Open in port: ")
 except:
