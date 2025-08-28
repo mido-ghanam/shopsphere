@@ -122,6 +122,7 @@ USE_TZ = True
 LANGUAGES = [
   ('en', 'English'),
 ]
+
 LANGUAGE_CODE = 'en'
 USE_I18N = True
 
