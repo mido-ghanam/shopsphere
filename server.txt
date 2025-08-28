@@ -1,0 +1,7 @@
+django
+django-cors-headers
+pytz
+whitenoise
+djangorestframework
+djangorestframework-simplejwt
+unidecode
