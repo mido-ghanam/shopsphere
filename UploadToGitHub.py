@@ -18,6 +18,6 @@ os.system(f'''
 git add . && \
 git commit -m "{datetime.now(pytz.timezone("Africa/Cairo")).strftime("%d-%m-%Y | %H:%M:%S")}{ f' | {q}' if q else '' }" && \
 git branch -M main && \
-git push https://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@github.com/mido-ghanam/{project}.git main --force
+git push https://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@github.com/mido-ghanam/{project}.git main --force
 ''')
-#git clone https://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@github.com/mido-ghanam/shopsphere.git
+#git clone https://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@github.com/mido-ghanam/shopsphere.git

@@ -9,16 +9,11 @@ conn = sqlite3.connect(DB_PATH)
 conn.execute("PRAGMA foreign_keys = ON") 
 cur = conn.cursor()
 
-#cur.execute("DROP TABLE users")
+cur.execute("DROP TABLE users")
 cur.execute("""
 CREATE TABLE IF NOT EXISTS users (
   id TEXT PRIMARY KEY,
   user_id INTEGER UNIQUE,
-  telegram_user_id BIGINT UNIQUE,
-  balance BIGINT DEFAULT 0,
-  role TEXT DEFAULT 'user' CHECK (role IN ('user', 'admin', 'moderator')),
-  actived_account BOOLEAN DEFAULT 0,
-  preferred_language TEXT DEFAULT 'en' CHECK (preferred_language IN ('en', 'ar')),
   joined_at TEXT DEFAULT CURRENT_TIMESTAMP
 );
 """)

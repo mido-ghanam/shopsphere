@@ -1,18 +1,21 @@
+from rest_framework_simplejwt.views import TokenVerifyView, TokenRefreshView
 from django.conf.urls import handler404, handler500
 from django.conf.urls.static import static
+from . import handlers as h, views as v
 from django.urls import path, include
 from django.http import JsonResponse
 from django.contrib import admin
 from django.conf import settings
-from . import handlers as h
 
 urlpatterns = [
   path('admin/', admin.site.urls),
   path('status/', h.status),
   
-  ## APIs ##
-  path('api/auth/', include('authentication.urls')),
-  #path('api/site/', include('site_api.urls')),
+  ## JWT Authentication URLs ##
+  path('api/auth/login/', v.JWT.LoginView.as_view(), name='login_api'),
+  path('api/auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh_api'),
+  path('api/auth/token/verify/', TokenVerifyView.as_view(), name='token_verify_api'),
+  path('api/auth/logout/', v.JWT.LogoutView.as_view(), name='logout_api'),
   
 ]
                 
