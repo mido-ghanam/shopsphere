@@ -1,5 +1,5 @@
 from rest_framework_simplejwt.views import TokenRefreshView as SimpleTokenRefreshView
-from ..serializers import RegisterSerializer, TokenObtainPairSerializer
+from ..serializers import TokenObtainPairSerializer
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
@@ -8,21 +8,6 @@ from django.contrib.auth.models import User
 from rest_framework.views import APIView
 from rest_framework import status
 from .. import models as m
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
-
-class RegisterView(APIView):
-  permission_classes = [AllowAny]
-  def post(self, request):
-    serializer = RegisterSerializer(data=request.data, context={"request": request})
-    if serializer.is_valid():
-      try:
-        result = serializer.save()
-        return Response(result, status=201)
-      except Exception as e:
-        return Response({"status": False, "error": str(e)}, status=500)
-    return Response({"status": False, "error": serializer.errors}, status=400)
 
 class LoginView(TokenObtainPairView):
   serializer_class = TokenObtainPairSerializer

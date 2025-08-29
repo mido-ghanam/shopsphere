@@ -4,7 +4,6 @@ from . import views as v
 
 urlpatterns = [
   ## JWT Authentication URLs ##
-  path('register/', v.JWT.RegisterView.as_view(), name='register_api'),
   path('login/', v.JWT.LoginView.as_view(), name='login_api'),
   path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh_api'),
   path('token/verify/', TokenVerifyView.as_view(), name='token_verify_api'),
